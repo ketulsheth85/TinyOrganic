@@ -1,4 +1,4 @@
-# Tinydotcom
+# Tiny Organic
 
 This repository contains the code necessary for the new and improved tinyorganics.com site. The instructions below are subject to change as the codebase and the team grows.
 
