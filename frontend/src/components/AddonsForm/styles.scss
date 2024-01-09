@@ -1,0 +1,40 @@
+.AddonsForm{
+	margin: auto;
+	max-width: 500px;
+	margin-top: 40px;
+	&__modal{
+		& .ant-modal-header{
+			margin-bottom: 0px !important;
+		}
+		& .ant-modal-body{
+			overflow: unset !important;
+		}
+	}
+	& .RenderChildrenWithAddonTags{
+		margin-bottom: 16px;
+	}
+	&__card-text{
+		margin: 0px;
+		margin-bottom: 8px;
+		font-family: sans-serif;
+		text-transform: lowercase;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 16px;
+		letter-spacing: 0.0025em;
+		color: #214042;
+	  }
+	  &__card-nutrition-facts{
+		  font-family: 'supria-sans';
+		  font-style: italic;
+		  font-weight: normal;
+		  font-size: 12px;
+		  line-height: 16px;
+		  letter-spacing: 0.0025em;
+		  text-decoration-line: underline;
+		  color: var(--green-500);
+		  &:hover{
+			  cursor: pointer;
+		  }
+	  }
+}

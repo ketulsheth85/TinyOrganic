@@ -1,0 +1,14 @@
+.DashboardPlanForm{
+	&__options{
+		text-align: right;
+		button{
+			padding-right: 0px;
+			@media(min-width:620px){
+				&:first-child{
+					padding-right: 15px;
+				}
+			}
+		}
+
+	}
+}

@@ -1,0 +1,3 @@
+from apps.customers.tests.factories.customer import CustomerFactory
+from apps.customers.tests.factories.customer_child import CustomerChildFactory
+from apps.customers.tests.factories.customer_subscription import CustomerSubscriptionFactory

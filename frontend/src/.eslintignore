@@ -1,0 +1,7 @@
+dist
+node_modules
+src/assets
+postcss.config.js
+.babelrc
+tailwind.config.js
+!src/**/*.{tsx,ts,js}

@@ -1,0 +1,14 @@
+{% extends 'uploads/upload_base.html' %}
+
+{% block form-title %}Upload Fulfillment center zipcodes{% endblock form-title %}
+
+
+{% block upload-form %}
+<form action="{% url 'upload-fulfillment-center-zipcodes-csv' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br /><br />
+    <input type="file" id="csv_file" name="csv_file"><br /><br />
+
+    <button type="submit">Upload CSV</button>
+</form>
+{% endblock upload-form %}

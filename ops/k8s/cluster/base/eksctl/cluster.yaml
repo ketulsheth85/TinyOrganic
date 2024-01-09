@@ -1,0 +1,25 @@
+# https://github.com/weaveworks/eksctl
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  region: us-east-1
+  # TODO: update k8s version
+  version: "1.17"
+  name: cluster-name # Kustomize uses the name to target resources.
+nodeGroups:
+  - name: ng-1
+    # TODO: reconsider instance size
+    instanceType: t2.large
+    desiredCapacity: 1
+    ssh:
+      # FIXME: cycle key
+      publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6OxruubCaEzsVkhckgFIf+FoXzHXJsVF2CFrKo/WzSwrx76D+UO4wT0X2J3pQuKFV3QCoPscIImLJM+dJzo7EDvMJ2O9mYzGTPPaakzRzEU3if0ZJxUpxtrRSBrW6ZV7ZuKlrJtOVc4U2nWLkUw3RnGrTCvu418P1eBpnmDXdcofVgXdrW+2F8Q2KlfPDcOKp8GQ+HGP3ARQP9vWDinOX8xH/ysQHCEZIUgNrzu8vA5NiAPDp8eHG1tsCSQgKwMH5/YNqYqebPyJXWv5nnYzwGxucXOXci3dXKWcUDcQaggEnAnfIFDwh3uMEmtyZK/avh6UI6JjYfPJ2igqVzV1dCgqnxftuz4F2OZFLUWFjNP/6cwuv3aOtwlPLSSAFNdiJuGZ7qtj8wRnffjldN8frO3tF6rmRttUXEwTDIlILCSvj7q+CSWD56K+U6Js83LVM9l8TA+gPtVjeV3ONxRle97N4dt5Uuqdb3aIYbzdu+XiPN8KwZuxb4mSUngu3vHE= tech@tinyorganics.com"
+    iam:
+      withAddonPolicies:
+        albIngress: true
+        certManager: true
+        efs: true
+        externalDNS: true
+
+
+arn:aws:iam::606544177517:policy/AWSLoadBalancerControllerIAMPolicy

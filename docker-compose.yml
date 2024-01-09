@@ -1,0 +1,88 @@
+version: '3.7'
+
+x-local-env: &development-env
+  env_file:
+    - ${ENV_FILE:-envs/development.env}
+  restart: on-failure:${SERVICE_RESTART_LIMIT:-5}
+
+x-backend-common: &backend-common
+  volumes: 
+    - .:/app
+
+services: 
+  db:
+    build:
+      context: ./services/postgres
+    environment:
+      # This facilitates `psql` access. It needs to match `POSTGRES_USER`.
+      - PGUSER=postgres
+    ports:
+      - "5433:5432"
+    <<: *development-env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    build: 
+      context: backend
+      dockerfile: Dockerfile-dev
+      target: development-build
+    command: ["serve", "runserver"]
+    <<: *development-env
+    <<: *backend-common
+    ports:
+      - "8000:8000"
+    depends_on: 
+      - db
+  collectstatic:
+    build:
+      context: backend
+      dockerfile: Dockerfile-dev
+      target: development-static
+    command: ["collectstatic"]
+    <<: *development-env
+    <<: *backend-common
+    depends_on:
+      - backend
+      - db
+  celery:
+    build:
+      context: backend
+      dockerfile: Dockerfile-dev
+      target: development-celery
+    command: ["worker"]
+    <<: *development-env
+    <<: *backend-common
+    depends_on:
+      - redis
+      - backend
+      - db
+  celery-beat:
+    build:
+      context: backend
+      dockerfile: Dockerfile-dev
+      target: development-celerybeat
+    command: ["beat"]
+    <<: *development-env
+    <<: *backend-common
+    depends_on:
+      - celery
+  frontend:
+    build:
+      context: frontend
+    command: ["run", "dev"]
+    <<: *development-env
+    <<: *backend-common
+    depends_on:
+      - db
+      - collectstatic
+    ports:
+      - "3000:3000"
+  redis:
+    build: 
+      context: ./services/redis
+    <<: *development-env
+    ports: 
+      - "6379"
+
+volumes: 
+  postgres_data:

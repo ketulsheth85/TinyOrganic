@@ -1,0 +1,32 @@
+.FloatingCart{
+	position: fixed;
+	bottom: 90px;
+	right: 30px;
+	text-align: center;
+	& .ant-btn-lg{
+		height: 40px !important;
+	}
+	& p{
+		margin-bottom: 8px;
+	}
+	&__footer{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		& button:first-child, & button:nth-child(2){
+			margin-bottom: 10px;
+		}
+
+	}
+	@media(min-width: 762px){
+		&{
+			bottom: 30px;
+		}
+		&__footer{
+			justify-content: flex-start;
+			& button:first-child, & button:nth-child(2){
+				margin-bottom: 0px;
+			}
+		}
+	}
+}

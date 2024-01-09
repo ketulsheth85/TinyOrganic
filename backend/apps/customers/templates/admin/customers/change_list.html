@@ -1,0 +1,29 @@
+{% extends 'admin/change_list.html' %}
+
+{% load i18n %}
+
+{% block extrahead %}
+    <style>
+        .field-hijack_field {
+            width: 150px !important;
+        }
+        .field-hijack_field button {
+            width: 125px !important;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #0f0f0f;
+        }
+    </style>
+{% endblock %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+    <li>
+        <a href="{% url 'admin:sync-orders-to-shopify' %}" class="btn btn-default btn-xs" role="button">
+            <span class="glyphicon glyphicon-chevron-down">Sync Orders to Shopify</span>
+        </a>
+    </li>
+{% endblock %}
+{% block result_list %}
+    {{ block.super }}
+{% endblock result_list %}

@@ -1,0 +1,40 @@
+.MultiPageForm{
+    background: #FFFCF2;
+    min-height: 100vh;
+    overflow: auto;
+    &__navigation{
+        background: #faf6f0;
+        -webkit-box-shadow: 0px 16px 29px 27px rgb(199 195 191 / 16%);
+        box-shadow: 0px 16px 29px 27px rgb(199 195 191 / 16%);
+        padding: 0px 10px;
+        box-shadow: 0px 16px 29px 27px rgb(199 195 191 / 16%);
+        &__inner{
+            max-width: 658px;
+            margin: 0 auto;
+            padding: 20px;
+            &__logo{
+                text-align: center;
+                margin-bottom: 10px;
+                & img{
+                    width: 100px;
+                }
+            }
+        }
+        @media(min-width: 763px){
+            &__inner{
+                display: flex !important;
+                &__logo{
+                    text-align: left;
+                    margin-bottom: 0px;
+                    margin-left: -100px;
+                    margin-right: 100px;
+                }
+            }
+        }
+    }
+    &__inner{
+        padding: 0px 20px;
+        // max-width: 1200px;
+        margin: 20px auto;
+    }
+}

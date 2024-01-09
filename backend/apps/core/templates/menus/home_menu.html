@@ -1,0 +1,27 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-xl navbar-light bg-light sticky-top" id='navBarPadding'>
+  <div class="container-fluid" id='mobileWrapper'>
+    <a class="navbar-brand" id='logo-padding' href="https://www.tinyorganics.com/"><img src="{% static 'logo.svg' %}"></a>
+    <div class='d-flex justify-content-end' id='cart-padding'>
+        <button class="navbar-toggler collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <div class="close-icon py-1">✖</div>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mobile-nav listItemContainer d-xl-none">
+        <li class="nav-item displayListItem">
+          <a class="nav-link active mobile-nav__link" href="/accounts/login/">LOGIN</a>
+        </li>
+        <li class="nav-item displayListItem">
+          <a href="/onboarding/" class="nav-link active mobile-nav__link" role="button">Get Started</a>
+        </li>
+      </ul>
+    </div>
+    <div class="start-tiny-cta-group d-none d-xl-flex justify-content-center align-items-center">
+        <a href="/accounts/login/" class='tinyLogin'>LOGIN</a>
+        <a href="/onboarding/" class="tinyBtn btn btn-cta btn-outline-success d-flex justify-content-center align-items-center" role="button">Get Started</a>
+    </div>
+  </div>
+</nav>

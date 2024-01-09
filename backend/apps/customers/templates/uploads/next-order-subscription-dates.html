@@ -1,0 +1,13 @@
+{% extends 'uploads/upload_base.html' %}
+
+{% block form-title %}Update Customer Subscription Order Dates CSV{% endblock %}
+
+{% block upload-form %}
+    <form action="{% url 'update-next-order-charge-dates-csv' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br/><br/>
+        <input type="file" id="csv_file" name="csv_file"><br/><br/>
+
+        <button type="submit">Upload CSV</button>
+    </form>
+{% endblock upload-form %}

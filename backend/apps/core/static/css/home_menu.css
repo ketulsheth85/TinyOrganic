@@ -1,0 +1,197 @@
+/* ======================================
+  Media Queries
+  
+  Breakpoint	        Purpose
+  (default)	          Mobile-portrait
+  max-width: 480px	  Mobile-landscape (and larger)
+  max-width: 768px	  Tablet-portrait (and larger)
+  max-width: 992px	  Tablet-landscape (and larger)
+  max-width: 1200px	  Laptops (and larger)
+========================================= */
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+    --orange: #F7AA1C;
+    --teal: #214042;
+    --grey: #596E79;
+    --white: #FFFFFF;
+    --fadeGrey: #dee2e6;
+}
+
+@media all and (max-width: 4000px) {
+    #logo-padding {
+        padding-left: 3rem;
+        padding-bottom: 1rem;
+        padding-top: 0.9rem;
+    }
+
+    #navBarPadding {
+        padding-left: 3rem;
+        padding-right: 3rem;;
+    }
+
+    .listItemContainer {
+        padding-left: 3em !important;
+    }
+
+    .displayListItem:nth-child(n+6) {
+        display: none !important;
+    }
+
+    .displayListItem > a {
+        color: var(--teal) !important;
+        padding: 3px 14px;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: supria-sans, Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        padding-right: 1rem !important;
+    }
+
+    .tinyLogin {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: supria-sans, Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        color: var(--teal);
+        text-decoration: none;
+    }
+
+    .tinyLogin:hover {
+        color: var(--teal);
+    }
+
+    .tinyBtn {
+        margin-left: 30px !important;
+        margin-right: 30px !important;
+        color: var(--white) !important;
+        background-color: var(--teal) !important;
+        border-radius: 40px !important;
+        width: 176px;
+        height: 48px;
+        font-family: supria-sans, Arial, Helvetica, sans-serif;
+    }
+}
+
+@media all and (max-width: 1199px) {
+    #navBarPadding {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    .listItemContainer {
+        padding-left: 0 !important;
+    }
+
+    .displayListItem { 
+        border-bottom: 1px solid var(--fadeGrey) !important;
+    }
+
+    .displayListItem:nth-child(n+6) {
+        display: initial !important;
+    }
+
+    .navbar-toggler:focus,
+    .navbar-toggler:active {
+        outline: 0;
+    }
+
+    /* hide close when burger shown */
+    .navbar-toggler.collapsed .close-icon {
+        display: none;
+    }
+
+    .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+        display: inline;
+    }
+
+    .navbar {
+        padding-top: 1rem;
+        padding-bottom: 0;
+    }
+    
+    .show {
+        background-color: var(--orange);
+    }
+
+    #mobileWrapper {
+        padding: 0;
+    }
+
+    #logo-padding {
+        padding-left: 12rem;
+        padding-bottom: 1rem;
+    }
+
+    #cart-padding {
+        padding-right: 3rem;
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 10px, 11px, 10px, 11px;
+    }
+
+    .navbar-toggler-icon {
+        height: 21px;
+        width: 21px;
+    }
+
+    button {
+        /* border-color: rgba(0,0,0,0) !important; */
+        padding-right: 0.75rem;
+    }
+
+    .bi-bag {
+        color: var(--grey);
+    }
+
+    .mobile-nav {
+        background: var(--orange);
+        margin-bottom: 16px;
+    }
+
+    .mobile-nav__link {
+        padding-top: 15px !important;
+        padding-right: 30px !important;
+        padding-bottom: 15px !important;
+        padding-left: 30px !important;
+        color: var(--teal) !important;
+        text-transform: uppercase;
+        font-family: Montserrat, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500 !important;
+        letter-spacing: 1.5px;
+    }    
+}
+
+@media all and (max-width: 992px) {
+    #navBarPadding {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    .listItemContainer {
+        padding-left: 0 !important;
+    }
+
+    .displayListItem {
+        border-bottom: 1px solid var(--fadeGrey) !important;
+    }
+
+    #logo-padding {
+        padding-left: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    #cart-padding {
+        padding-right: 1rem;
+    }
+}

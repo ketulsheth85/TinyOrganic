@@ -1,0 +1,36 @@
+.PostPurchasePage{
+	&__body{
+		min-height: 100vh;
+	}
+	&__greeting{
+		padding-top: 24px;
+		padding-bottom: 60px;
+		& .ant-col{
+			max-width: 450px;
+			text-align: center;
+		}
+		@media(min-width: 968px){
+			padding-top: 46px;
+			& .ant-col{
+				text-align: left;
+			}
+			& .SmoothBoyCard__body{
+				> *{
+					max-width: 284px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+				& h1, & p{
+					text-align: center;
+				}
+			}
+		}
+	}
+	&__questionnare{
+		padding-bottom: 46px;
+		background: var(--green-100);
+		& .ant-col{
+			max-width: 550px !important;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+- op: replace
+  path: /spec/replicas
+  value: 1
+
+- op: replace
+  path: /spec/template/spec/containers/0/image
+  value: 606544177517.dkr.ecr.us-east-1.amazonaws.com/tinydotcom-celery:latest

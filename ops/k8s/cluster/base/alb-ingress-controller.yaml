@@ -1,0 +1,97 @@
+# see: https://github.com/kubernetes-sigs/aws-alb-ingress-controller
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: alb-ingress-controller
+  name: alb-ingress-controller
+rules:
+  - apiGroups:
+      - ""
+      - extensions
+    resources:
+      - configmaps
+      - endpoints
+      - events
+      - ingresses
+      - ingresses/status
+      - services
+    verbs:
+      - create
+      - get
+      - list
+      - update
+      - watch
+      - patch
+  - apiGroups:
+      - ""
+      - extensions
+    resources:
+      - nodes
+      - pods
+      - secrets
+      - services
+      - namespaces
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/name: alb-ingress-controller
+  name: alb-ingress-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: alb-ingress-controller
+subjects:
+  - kind: ServiceAccount
+    name: alb-ingress-controller
+    namespace: kube-system
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/name: alb-ingress-controller
+  name: alb-ingress-controller
+  namespace: kube-system
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: alb-ingress-controller
+  name: alb-ingress-controller
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: alb-ingress-controller
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: alb-ingress-controller
+    spec:
+      containers:
+        - name: alb-ingress-controller
+          args:
+            - --ingress-class=$(INGRESS_CLASS)
+            - --cluster-name=$(INGRESS_CLUSTER_NAME)
+          # TODO: update controller version
+          image: docker.io/amazon/aws-alb-ingress-controller:v2.3.0
+          env:
+            - name: INGRESS_CLUSTER_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: cluster-info
+                  key: INGRESS_CLUSTER_NAME
+            - name: INGRESS_CLASS
+              valueFrom:
+                configMapKeyRef:
+                  name: cluster-info
+                  key: INGRESS_CLASS
+      serviceAccountName: alb-ingress-controller

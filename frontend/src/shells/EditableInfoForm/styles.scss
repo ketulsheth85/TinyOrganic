@@ -1,0 +1,80 @@
+.EditableInfoForm{
+	margin-bottom: 60px;
+	&__header{
+		& > * {
+			margin-bottom: 0px;
+			color: var(--green-500);
+			padding-bottom: 4px;
+			font-style: italic;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 24px;
+			letter-spacing: 0.0025em;
+		}
+		border-bottom: 1px solid var(--green-500);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__caret{
+		padding: 0px 5px;
+		transition: 0.2s ease-in;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	&__caret--open{
+		transform: rotate(180deg)
+	}
+	&__details-view{
+		background: transparent !important;
+		.ant-card-body{
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&__open-btn{
+		color: #204041;
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: none;
+		margin-top: -20px;
+		align-self: flex-end;
+	}
+	&__open-btn:hover{
+		cursor: pointer;
+	}
+	&__details{
+		color: var(--green-500);
+		font-weight: 500;
+		margin-bottom: 8px !important;
+		font-size: 16px;
+	}
+	&__details:last-child{
+		margin-bottom: 0px;
+	}
+}
+.EditableInfoForm--no-border{
+	border: none;
+}
+.EditableInfoForm--open{
+	margin-bottom: 0px;
+}
+
+.EditableInfoFormCard{
+	margin-bottom: 30px !important;
+	border: 1px solid #eee !important;
+    box-shadow: 0px 0px 6px #ddd !important;
+	background: hsl(45, 40%, 98%) !important;
+	& .EditableInfoForm__details:first-child{
+		padding-top: 20px;
+	}
+	& .EditableInfoForm__header{
+		padding-bottom: 8px;
+	}
+	& .EditableInfoForm__header h3{
+		font-size: 24px;
+		line-height: 29px;
+		font-style: normal;
+	}
+}

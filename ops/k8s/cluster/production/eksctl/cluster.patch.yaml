@@ -1,0 +1,11 @@
+- op: replace
+  path: /metadata/name
+  value: production
+
+- op: replace
+  path: /nodeGroups/0/desiredCapacity
+  value: 3
+
+- op: replace
+  path: /metadata/version
+  value: "1.18"

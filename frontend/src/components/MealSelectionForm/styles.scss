@@ -1,0 +1,57 @@
+.MealSelectionForm{
+	background: #F2EFE9;
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 0;
+	&__inner{
+		height: 100%;
+		display: flex;
+		&__spinner{
+			margin: auto;
+		}
+	}
+}
+
+.ChildMealSelectionForm{
+	&__banner{
+		margin-left: -20px;
+		margin-right: -20px;
+		@media(min-width: 800px){
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	&__body{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		margin: auto;
+		justify-content: space-between;	
+		max-width: 900px;
+		margin: auto;
+	}
+	&__meal{
+		flex: 0 0 100%;
+		max-width: 100%;
+		& > * {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	@media(min-width: 900px){
+		.ant-modal-body &__meal{
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		 &__meal{
+			flex: 0 0 48%;
+			max-width: 48%;
+			& > * {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}

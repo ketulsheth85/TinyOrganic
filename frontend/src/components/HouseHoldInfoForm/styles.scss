@@ -1,0 +1,45 @@
+.HouseHoldInfoForm{
+    &__form-outer{
+        width: 100%;
+        margin-bottom: 36px;
+    }
+    &__input{
+        &__label{
+            white-space: nowrap;
+            align-items: baseline;
+            margin-right: 8px;
+            color: #6B5C54;
+            font-size: 16px;
+            font-weight: 400;
+            &__error{
+                white-space: nowrap;
+                color: #FE7879;
+                margin-bottom: 0px;
+            }
+        }
+        & .ant-form-item{
+            width: 100%;
+            margin-right: 8px;
+        }
+        & .ant-input:hover,
+        & .ant-picker:hover,
+        & .ant-select-selector:hover{
+            border: none !important;
+            border-bottom: 1px solid !important;
+            box-shadow: none !important;
+        }
+        &__field--error{
+             border-color: #ff4d4f !important;
+             margin-top: 3px;
+        }
+        & .ant-form-item-control-input-content > input,
+        &__field .ant-select-selection-item,
+        &__field .ant-select-item
+        {
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+            color: #204041 !important;
+            font-weight: 500;
+        }
+    }
+}

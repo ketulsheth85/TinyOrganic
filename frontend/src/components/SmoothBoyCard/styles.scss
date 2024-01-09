@@ -1,0 +1,17 @@
+.SmoothBoyCard{
+	background: #FFFFFF;
+	border: 1px solid #F5EDE5;
+	box-sizing: border-box;
+	border-radius: 5px;
+	&__image{
+		height: 154px;
+		& > img{
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	&__body{
+		padding: 24px 16px;
+	}
+}

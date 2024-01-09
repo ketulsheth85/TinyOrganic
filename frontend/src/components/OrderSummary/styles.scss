@@ -1,0 +1,192 @@
+@import url('https://use.typekit.net/wtr1ims.css');
+.CheckoutSummary{
+	margin: 0 -20px;
+	@media(min-width: 992px){
+		margin: 0;
+	}
+	background: #F5EDE5;
+	& h5, & h3, & p{
+		font-family: 'supria-sans';
+		color: #214042;
+		letter-spacing: 0.0025em;
+	}
+	&__inner{
+		padding: 32px 23px;
+		max-width: 390px;
+		margin: auto;
+	}
+	&__title{
+		font-style: italic;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 36px;
+		text-align: center;
+	}
+	&__item-container{
+		display: flex;
+		flex-direction: column;
+		justify-content: stretch;
+		align-items: stretch;
+	}
+	&__item{
+		background: #fff;
+		border-radius: 4px;
+		padding: 12px 16px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		max-width: 100%;
+		margin: 0px;
+		margin-bottom: 6px;
+	}
+	&__details{
+		padding: 0px 16px;
+		padding-right: 10px;
+		max-width: 200px;
+		flex: 1;
+		@media(min-width: 445px){
+			&{
+				padding-left: 24px;
+			}
+		}
+	}
+	&__item-icon{
+		max-width: 47px;
+		max-height: 35px;
+		padding-top: 5px;
+	}
+	&__item-name{
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 600;
+		margin-top: 0px;
+		margin-bottom: 8px;
+	}
+	&__item-description{
+		font-size: 14px;
+		font-weight: 100;
+		line-height: 16px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	&__item button{
+		background: none;
+		text-decoration: underline;
+		font-size: 12px;
+		font-style: italic;
+		font-weight: 100;
+		border: none;
+		padding: 5px;
+		color: #214042;
+	}
+	&__item button:hover{
+		cursor: pointer;
+	}
+	.CheckoutItem__price{
+		justify-self: flex-end;
+		margin-left: auto;
+	}
+	.CheckoutItem__price p{
+		margin: 0px;
+		padding: 0px;
+		font-weight: 600;
+		font-size: 14px;
+	}
+	&__input{
+		margin-top: 30px;
+	}
+	&__input-label{
+		margin: 0px;
+		margin-bottom: 14px;
+		font-style: italic;
+		font-size: 16px;
+		line-height: 18px;
+	}
+	&__input-inner{
+		background: #fff;
+		border-radius: 5px;
+		border: 1px solid #94A0A0;
+		position: relative;
+		display:flex;
+	}
+	&__input-inner input{
+		color: #5C696A;
+		font-family: 'supria-sans';
+		font-size: 16px;
+		padding: 14px 16px;
+		border: none;
+		background: none;
+	}
+	&__input-inner button{
+		background: none;
+		border: none;
+		margin-left: auto;
+		margin-right: 16px;
+		font-size: 13px;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: #214042;
+		border-bottom: 2px solid #214042;
+		padding: 0px;
+		align-self: center;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	&__input-inner input:hover,
+	&__input-inner input:focus,
+	&__input-inner input:active{
+		border: none !important;
+		width: 100%;
+	}
+	&__breakdown{
+		margin-top: 26px;
+		margin-bottom: 26px;
+		border-color: #214042;
+		border-top: 1px solid;
+		border-bottom: 1px solid;
+		padding: 24px 0px;
+	}
+	&__breakdown-line{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-weight: 100;
+		padding-bottom: 20px;
+	}
+	&__breakdown-line:last-child{
+		padding-bottom: 0px;
+	}
+	&__breakdown-line p{
+		margin: 0px;
+	}
+	&__breakdown--bold p{
+		font-weight: 600;
+	}
+	&__checkout-btn{
+		text-transform: uppercase;
+		display: block !important;
+		width: 100% !important;
+		height: 60px !important;
+		background: #214042;
+		border-radius: 40px;
+	}
+	&__remark{
+		text-align: center;
+		margin: 20px 0px;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 600;
+		font-style: italic;
+	}
+	&__disclosure{
+		text-align: center;
+		font-weight: 100;
+		font-size: 14px;
+		line-height: 20px;
+	}
+	&__disclosure a {
+		color: inherit;
+	}
+}

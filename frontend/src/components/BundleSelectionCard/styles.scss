@@ -1,0 +1,64 @@
+.BundleSelectionCard{
+	background: #FFFFFF;
+	border: 1px solid #94A0A0;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 32px;
+	text-align: center;
+	position: relative;
+	&:hover{
+		cursor: pointer;
+	}
+	&__featured-text{
+		position: absolute;
+		top: 16px;
+		left: 0px;
+		right: 0px;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 9px;
+		line-height: 8px;
+		text-align: center;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+	&__header{
+		font-style: normal;
+		font-weight: 600;
+		font-size: 36px;
+		line-height: 40px;
+		text-align: center;
+		letter-spacing: 0.01em;
+		color: #214042;
+		margin-bottom: 5px;
+	  }
+	  
+	  &__subheader{
+		font-style: italic;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.0025em;
+		color: #ccc;
+		margin-top:0px;
+	  }
+	  
+	  &__text{
+		color: #ccc;
+		font-style: italic;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 20px;
+		text-align: center;
+		letter-spacing: 0.0025em;
+	  }
+  }
+  
+
+  .BundleSelectionCard--active{
+	background: #DFF6FC;
+	h3, p{
+		font-weight: 600;
+		color: #214042;
+	}
+  }

@@ -1,0 +1,4 @@
+ - op: replace
+   path: /spec/template/spec/volumes/0/nfs/server
+   # FIXME: value
+   value: fs-010c4208e84ed207e.efs.us-east-1.amazonaws.com

@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base
+  - namespace.yaml
+namespace: staging-1
+configMapGenerator:
+  - name: tinydotcom-config-map
+    envs:
+      - ../../../../envs/staging.env
+patchesJson6902:
+  - target:
+      group: extensions
+      version: v1beta1
+      kind: Ingress
+      name: tinydotcom-ingress
+    path: ingress.patch.yaml
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: tinydotcom-backend-deployment
+    path: deployments/backend-deployment.patch.yaml
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: tinydotcom-celery-deployment
+    path: deployments/celery-deployment.patch.yaml
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: tinydotcom-celerybeat-deployment
+    path: deployments/celerybeat-deployment.patch.yaml

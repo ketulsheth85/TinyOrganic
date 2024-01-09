@@ -1,0 +1,17 @@
+# https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  # TODO: Reconsider group
+  mapUsers: |
+    - userarn: arn:aws:iam::606544177517:user/raul
+      username: raul
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::606544177517:user/alex
+      username: alex
+      groups:
+        - system:masters

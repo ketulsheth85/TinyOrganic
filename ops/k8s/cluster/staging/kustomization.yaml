@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+  - ../base/
+namespace: kube-system
+configMapGenerator:
+  - name: cluster-info
+    # merge config generators, see: https://github.com/kubernetes-sigs/kustomize/blob/master/examples/combineConfigs.md
+    behavior: merge
+    literals:
+    - INGRESS_CLUSTER_NAME=staging # Needs to match `./eksctl/cluster.patch.yaml`
+    # FIXME: domain
+    - EXTERNAL_DNS_DOMAIN_FILTER=tinyorganics.com
+  - name: efs-provisioner
+    behavior: merge
+    literals:
+      #FIXME: value
+      - file.system.id=fs-01e825a2833e0da19
+patchesJson6902:
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: efs-provisioner
+    path: efs.patch.yaml

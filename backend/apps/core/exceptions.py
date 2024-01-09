@@ -1,0 +1,4 @@
+
+
+class APIRateLimitError(Exception):
+    ...

@@ -1,0 +1,48 @@
+.MultiPageForm__footer {
+  display: flex;
+  justify-content: space-evenly;
+  color: #214042;
+  background: #ffffff;
+  width: 100%;
+
+  .MultiPageForm__footer__inner {
+    max-width: 1024px;
+
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .MultiPageForm__footer__body {
+    display: flex;
+    justify-content: space-evenly;
+
+    .MultiPageForm__footer__infoitem {
+      max-width: 248px;
+      margin: 48px;
+      .MultiPageForm__infoitem__icon {
+        display: flex;
+        justify-content: center;
+      }
+      .MultiPageForm__infoitem__title, .MultiPageForm__infoitem__subtitle {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 860px) {
+  .MultiPageForm__footer {
+    .MultiPageForm__footer__inner {
+      max-width: 1024px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    .MultiPageForm__footer__body {
+      flex-direction: column;
+      .MultiPageForm__footer__infoitem {
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}

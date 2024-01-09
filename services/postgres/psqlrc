@@ -1,0 +1,46 @@
+-- Force unicode encoding.
+\encoding unicode
+
+-- By default, NULL displays as an empty space.
+-- This makes the distinction between an empty string and NULL visible.
+\pset null 'ø'
+
+-- Use table format (with headers across the top) by default, but switch to
+-- expanded table format when there's a lot of data, which makes it much
+-- easier to read.
+\x auto
+
+-- Output all queries to standard out.
+\set ECHO queries
+
+-- Use a separate history file per user-host-database combination.
+-- Note: HOST variable may be empty, in which case the variable
+-- is not interpreted and simply appears in the file name as ":HOST".
+\set HISTFILE ~/.psql_history
+
+-- Increase history size to 10,000 entries.
+\set HISTSIZE 10000
+
+-- If a command is run more than once in a row, only store it once in the
+-- history.
+\set HISTCONTROL ignoreboth
+
+-- Autocomplete keywords in upper-case, regardless of how they were started.
+\set COMP_KEYWORD_CASE upper
+
+-- Report time used for each query.
+\timing
+
+-- Set a nice border around query results.
+-- \pset border 2
+
+-- Set pager to less, rather than more.
+\setenv PAGER /usr/bin/less
+
+-- Prompt 2, when a statement hasn't been terminated with a semicolon.
+\set PROMPT2 '[more] %R > '
+
+-- Sources:
+-- http://www.postgresql.org/docs/9.3/static/app-psql.html
+-- http://robots.thoughtbot.com/improving-the-command-line-postgres-experience
+-- http://blog.tplus1.com/blog/2012/10/23/customize-your-psql-terminal

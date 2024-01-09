@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+resources:
+  - aws-auth-cm.yaml
+  - alb-ingress-controller.yaml
+  - external-dns.yaml
+#  - efs.yaml
+configMapGenerator:
+  - name: cluster-info
+    literals:
+    - INGRESS_CLASS=alb
+  - name: efs-provisioner
+    literals:
+      - aws.region=us-east-1
+      - provisioner.name=example.com/aws-efs # should match storage class
+      - dns.name=""

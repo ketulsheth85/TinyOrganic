@@ -1,0 +1,12 @@
+{% extends 'uploads/upload_base.html' %}
+
+
+{% block upload-form %}
+    <form action="{% url 'upload-order-csv' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br /><br />
+        <input type="file" id="csv_file" name="csv_file"><br /><br />
+
+        <button type="submit">Upload CSV</button>
+    </form>
+{% endblock upload-form %}

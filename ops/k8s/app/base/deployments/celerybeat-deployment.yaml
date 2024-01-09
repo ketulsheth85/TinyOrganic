@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinydotcom-celerybeat-deployment
+spec:
+  selector:
+    matchLabels:
+      run: tinydotcom-celerybeat-worker
+  template:
+    metadata:
+      labels:
+        run: tinydotcom-celerybeat-worker
+    spec:
+      containers:
+        - name: tinydotcom-celerybeat
+          image: 606544177517.dkr.ecr.us-east-1.amazonaws.com/tinydotcom-celery:latest
+          command:
+            - docker-entrypoint.sh
+            - beat
+          envFrom:
+            - configMapRef:
+                name: tinydotcom-config-map
+      volumes:
+        - name: backend-tmp
+          persistentVolumeClaim:
+            claimName: backend-tmp

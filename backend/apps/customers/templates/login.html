@@ -1,0 +1,44 @@
+{% extends 'cms_base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class='container pt-5'>
+        <div class='row'>
+            <div class='col-9 col-lg-7 col-xl-5 mx-auto'>
+                <div class="alert alert-info text-center" role="alert">
+                    <h3 class="alert-heading"><em>First time on our new website?</em></h3>
+                    <p>While our chef has been busy in the kitchen cooking up some exciting new flavors for your little one, 
+                    our team has been busy cooking up a new website. Please set a new password to access your account.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="StaticForm">
+        <h2 class="StaticForm__header pt-5">Login</h2>
+        <div class="StaticForm__inner">
+            <form  method="post">
+                {% csrf_token %}
+                <div class="StaticForm__input">
+                    <p class="StaticForm__label">Email</p>
+                    {{ form.username }}
+                </div>
+                <div class="StaticForm__input">
+                    <p class="StaticForm__label">Password</p>
+                    {{ form.password }}
+                </div>
+                    <div class="StaticForm__footer pb-5">
+                        <ul class="StaticForm__link-list">
+                            <li><a href="/onboarding/">Don't have an account? Sign up <b>here</b></a></li>
+                            <li><a href="{% url 'password_reset' %}">Forgot your password?</a></li>
+                        </ul>
+                        <input class="StaticForm__button pt-b5" type="submit" value="Sign In">
+                        <div class="StaticForm__errors">
+                            {{ form.non_field_errors }}
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+{% include 'footer.html' %}
+{% endblock content %}

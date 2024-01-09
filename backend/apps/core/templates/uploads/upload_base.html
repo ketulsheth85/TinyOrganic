@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta name="robots" content="noindex" />
+    <meta name="AdsBot-Google" content="noindex" />
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            {% block form-title %} Upload CSV Form {% endblock form-title %}
+        </tr>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </thead>
+        <tbody>
+        <tr>
+            {% block upload-form %}
+            {% endblock upload-form %}
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

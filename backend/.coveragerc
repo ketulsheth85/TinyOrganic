@@ -1,0 +1,15 @@
+# .coveragerc to control coverage.py
+[run]
+branch = True
+source = apps
+omit = 
+    apps/__init__.py
+    apps/*/migrations/*.py
+    apps/*/tests/*.py
+    apps/*/tests/factories/*.py
+    apps/*/__init__.py
+    apps/*/tests.py
+    apps/*/factories.py
+
+[json]
+output = backend-coverage.json

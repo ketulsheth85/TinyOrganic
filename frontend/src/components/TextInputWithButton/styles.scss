@@ -1,0 +1,41 @@
+.TextInputWithButton{
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #94A0A0;
+	position: relative;
+	display:flex;
+	& input{
+		color: #5C696A;
+		font-family: 'supria-sans';
+		font-size: 16px;
+		padding: 14px 16px;
+		border: none;
+		background: none;
+		width: 100%;
+    	margin-right: 14px;
+	}
+	& button{
+		background: none;
+		border: none;
+		margin-left: auto;
+		margin-right: 16px;
+		font-size: 13px;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: #214042;
+		border-bottom: 2px solid #214042;
+		padding: 0px;
+		align-self: center;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	& input:hover,
+	& input:focus,
+	& input:active{
+		border: none !important;
+		width: 100%;
+		cursor: pointer;
+	}
+}

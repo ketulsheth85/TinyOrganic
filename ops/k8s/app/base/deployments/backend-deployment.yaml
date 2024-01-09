@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinydotcom-backend-deployment
+spec:
+  selector:
+    matchLabels:
+      run: tinydotcom-backend
+  template:
+    metadata:
+      labels:
+        run: tinydotcom-backend
+    spec:
+      containers:
+        - name: tinydotcom-backend
+          image: 606544177517.dkr.ecr.us-east-1.amazonaws.com/tinydotcom-backend:latest
+          command:
+            - docker-entrypoint.sh
+            - serve
+            - supervisor
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: tinydotcom-config-map
+#          resources:
+#            requests:
+#              cpu: "2"
+#              memory: "8Gi"
+      initContainers:
+        - name: django-migrate
+          image: 606544177517.dkr.ecr.us-east-1.amazonaws.com/tinydotcom-backend:latest
+          command:
+            - docker-entrypoint.sh
+            - migrate
+          envFrom:
+            - configMapRef:
+                name: tinydotcom-config-map
+#        - name: createsuperuser
+#          image: 606544177517.dkr.ecr.us-east-1.amazonaws.com/tinydotcom-backend:latest
+#          command:
+#            - docker-entrypoint.sh
+#            - createsuperuser
+#          envFrom:
+#            - configMapRef:
+#                name: tinydotcom-config-map
+        - name: collectstatic
+          image: 606544177517.dkr.ecr.us-east-1.amazonaws.com/tinydotcom-backend:latest
+          command:
+            - docker-entrypoint.sh
+            - collectstatic
+          envFrom:
+            - configMapRef:
+                name: tinydotcom-config-map
+      volumes:
+        - name: backend-tmp
+          persistentVolumeClaim:
+            claimName: backend-tmp

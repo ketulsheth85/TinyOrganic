@@ -1,0 +1,26 @@
+.BundleSelectionForm{
+	&__body{
+		width: 100%;	
+		max-width: 400px;
+		margin: auto;
+	}
+	&__cards{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		margin: auto;
+		justify-content: space-between;	
+		& > * {
+			flex: 0 0 48%;
+			max-width: 200px;
+		}
+	}
+	&__label{
+		margin-top: 20px;
+		font-weight: 300;
+		font-size: 24px;
+		line-height: 36px;
+		text-align: center;
+		letter-spacing: 0.0025em;
+	}
+}

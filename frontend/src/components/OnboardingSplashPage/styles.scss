@@ -1,0 +1,15 @@
+.OnboardingSplashPage{
+	background: #F2EFE9;
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 0;
+	&__inner{
+		height: 100%;
+		display: flex;
+		&__spinner{
+			margin: auto;
+		}
+	}
+}

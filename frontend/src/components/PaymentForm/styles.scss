@@ -1,0 +1,28 @@
+.PaymentForm{
+	margin-top: 20px;
+	&__loader{
+		text-align: center;
+		margin: 20px 10px;
+	}
+	& .ChildMealSelectionForm .OnboardingPageOverrides{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	@media(min-width: 763px){
+		& .OnboardingPageOverrides .ButtonContainer .ant-form-item-control-input-content{
+			align-items: flex-start;
+		}
+	}
+	& .ChildMealSelectionForm{
+		position: relative;
+		background: #fff;
+		border: 1px solid #ddd;
+		box-shadow: 0px 0px 10px #eee;
+		&__banner{
+			margin-top: 0px !important;
+		}
+	}
+	& .ChildMealSelectionForm .OnboardingPageOverrides .ButtonContainer .ant-form-item-control-input-content{
+		align-items: center !important;
+	}
+}
